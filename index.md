@@ -1,8 +1,3 @@
----
-layout: default
-title: ZettelWiki
----
-
 # Welcome to ZettelWiki
 
 Here are my Zettels:
@@ -11,7 +6,7 @@ Here are my Zettels:
   {% for page in site.pages %}
     {% if page.url != '/' and page.title %}
       <li>
-        <a href="{{ page.url | remove: '.md' }}">{{ page.title }}</a>
+        <a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a>
       </li>
     {% endif %}
   {% endfor %}

@@ -1,9 +1,8 @@
 title: "ZettelWiki"
 description: "My Zettelkasten notes"
-baseurl: "/zettelwiki" # If your repository is named `zettelwiki`
+baseurl: "/zettelwiki" # The base URL path for your site
 url: "https://tapangarg.github.io"
 markdown: kramdown
-theme: jekyll-theme-minimal # Or any other theme of your choice
+theme: jekyll-theme-minimal
 
-# Optionally, include the following for pretty URLs
 permalink: pretty

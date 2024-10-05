@@ -1,12 +1,18 @@
+---
+layout: default
+title: ZettelWiki
+---
+
 # Welcome to ZettelWiki
 
-Here are my Zettels:
+Here are my Zettels (Most Recent First):
 
 <ul>
-  {% for page in site.pages %}
-    {% if page.url != '/' and page.title %}
+  {% assign sorted_pages = site.pages | sort: 'date' | reverse %}
+  {% for page in sorted_pages %}
+    {% if page.url contains '.md' and page.title %}
       <li>
-        <a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a>
+        <a href="{{ page.url }}">{{ page.title }}</a> - {{ page.date | date: "%B %d, %Y" }}
       </li>
     {% endif %}
   {% endfor %}

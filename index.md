@@ -14,7 +14,7 @@ Here are my Zettels:
   {% for page in dated_pages %}
     {% if page.date and page.url contains '.md' and page.title %}
       <li>
-        <a href="{{ page.url }}">{{ page.title }}</a> - {{ page.date | date: "%B %d, %Y" }}
+        <a href="{{ page.url }}">{{ page.title }}</a> - {{ page.date | date: "%B %d, %Y" }} | Inspiration: {{ page.inspiration }}
       </li>
     {% endif %}
   {% endfor %}
@@ -26,7 +26,7 @@ Here are my Zettels:
   {% for page in site.pages %}
     {% if page.date == null and page.url contains '.md' and page.title %}
       <li>
-        <a href="{{ page.url }}">{{ page.title }}</a> - Date: Unknown
+        <a href="{{ page.url }}">{{ page.title }}</a> - Date: Unknown | Inspiration: {{ page.inspiration }}
       </li>
     {% endif %}
   {% endfor %}

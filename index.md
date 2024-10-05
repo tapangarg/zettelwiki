@@ -1,7 +1,6 @@
 ---
 layout: default
 title: ZettelWiki
-paginate: true  # Enable pagination for this page
 ---
 
 # Welcome to ZettelWiki
@@ -11,10 +10,11 @@ Here are my Zettels:
 ## Recent Zettels (With Valid Dates)
 
 <ul>
-  {% for post in paginator.posts %}
-    {% if post.date and post.url contains '/' and post.title %}
+  {% assign dated_pages = site.pages | sort: 'date' | reverse %}
+  {% for page in dated_pages %}
+    {% if page.date and page.url contains '/' and page.title %}
       <li>
-        <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: "%B %d, %Y | %I:%M %p" }} | Inspiration: {{ post.inspiration }}
+        <a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a> - {{ page.date | date: "%B %d, %Y | %I:%M %p" }} | Inspiration: {{ page.inspiration }}
       </li>
     {% endif %}
   {% endfor %}
@@ -23,32 +23,14 @@ Here are my Zettels:
 ## Other Zettels (Without Valid Dates)
 
 <ul>
-  {% for post in site.pages %}
-    {% if post.date == null and post.url contains '/' and post.title %}
+  {% for page in site.pages %}
+    {% if page.date == null and page.url contains '/' and page.title %}
       <li>
-        <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> - Date: Unknown | Inspiration: {{ post.inspiration }}
+        <a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a> - Date: Unknown | Inspiration: {{ page.inspiration }}
       </li>
     {% endif %}
   {% endfor %}
 </ul>
 
-<!-- Pagination Controls -->
-<div class="pagination">
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}">&laquo; Previous</a>
-  {% endif %}
-
-  {% for page in (1..paginator.total_pages) %}
-    {% if page == paginator.page %}
-      <span>{{ page }}</span>
-    {% else %}
-      <a href="{{ paginator.page_path | prepend: site.baseurl | replace: ':num', page }}">{{ page }}</a>
-    {% endif %}
-  {% endfor %}
-
-  {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | prepend: site.baseurl }}">Next &raquo;</a>
-  {% endif %}
-</div>
 
 

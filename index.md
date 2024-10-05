@@ -14,7 +14,7 @@ Here are my Zettels:
   {% for page in dated_pages %}
     {% if page.date and page.url contains '/' and page.title %}
       <li>
-        <a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a> - {{ page.date | date: "%B %d, %Y" }} | Inspiration: {{ page.inspiration }}
+        <a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a> - {{ page.date | date: "%B %d, %Y | %I:%M %p" }} | Inspiration: {{ page.inspiration }}
       </li>
     {% endif %}
   {% endfor %}
@@ -31,4 +31,5 @@ Here are my Zettels:
     {% endif %}
   {% endfor %}
 </ul>
+
 

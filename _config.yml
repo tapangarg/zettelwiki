@@ -1,4 +1,9 @@
-theme: jekyll-theme-minimal
-title: ZettelWiki
-description: My Zettelkasten notes
+title: "ZettelWiki"
+description: "My Zettelkasten notes"
+baseurl: "/zettelwiki" # If your repository is named `zettelwiki`
+url: "https://tapangarg.github.io"
+markdown: kramdown
+theme: jekyll-theme-minimal # Or any other theme of your choice
+
+# Optionally, include the following for pretty URLs
 permalink: pretty

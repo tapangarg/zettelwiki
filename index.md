@@ -11,7 +11,7 @@ Here are my Zettels:
   {% for page in site.pages %}
     {% if page.url != '/' and page.title %}
       <li>
-        <a href="{{ page.url }}">{{ page.title }}</a>
+        <a href="{{ page.url | remove: '.md' }}">{{ page.title }}</a>
       </li>
     {% endif %}
   {% endfor %}

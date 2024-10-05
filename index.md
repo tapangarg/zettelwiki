@@ -5,14 +5,28 @@ title: ZettelWiki
 
 # Welcome to ZettelWiki
 
-Here are my Zettels (Most Recent First):
+Here are my Zettels:
+
+## Recent Zettels (With Valid Dates)
 
 <ul>
-  {% assign sorted_pages = site.pages | sort: 'date' | reverse %}
-  {% for page in sorted_pages %}
-    {% if page.url contains '.md' and page.title %}
+  {% assign dated_pages = site.pages | sort: 'date' | reverse %}
+  {% for page in dated_pages %}
+    {% if page.date and page.url contains '.md' and page.title %}
       <li>
         <a href="{{ page.url }}">{{ page.title }}</a> - {{ page.date | date: "%B %d, %Y" }}
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>
+
+## Other Zettels (Without Valid Dates)
+
+<ul>
+  {% for page in site.pages %}
+    {% if page.date == null and page.url contains '.md' and page.title %}
+      <li>
+        <a href="{{ page.url }}">{{ page.title }}</a> - Date: Unknown
       </li>
     {% endif %}
   {% endfor %}

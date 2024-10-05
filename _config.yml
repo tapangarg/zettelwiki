@@ -3,6 +3,5 @@ description: "My Zettelkasten notes"
 baseurl: "/zettelwiki" # The base URL path for your site
 url: "https://tapangarg.github.io"
 markdown: kramdown
-theme: jekyll-theme-minimal
-
+remote_theme: pages-themes/dinky@v0.2.0
 permalink: pretty

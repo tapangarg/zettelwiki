@@ -9,7 +9,7 @@ Here are my Zettels:
 
 <ul>
   {% for page in site.pages %}
-    {% if page.url != '/' %}
+    {% if page.url != '/' and page.title %}
       <li>
         <a href="{{ page.url }}">{{ page.title }}</a>
       </li>

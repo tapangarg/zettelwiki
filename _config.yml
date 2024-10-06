@@ -6,3 +6,6 @@ markdown: kramdown
 remote_theme: pages-themes/dinky@v0.2.0
 permalink: pretty
 
+# Pagination settings
+paginate: 100 # Number of items per page
+paginate_path: "/page:num"
